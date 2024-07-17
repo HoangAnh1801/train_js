@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {Button} from "@mui/material";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 
 type User = {
     id: number;
