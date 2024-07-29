@@ -1,8 +1,13 @@
 package com.hoanganh.userservice.controller;
 
+import com.hoanganh.userservice.entity.Response;
 import com.hoanganh.userservice.entity.User;
 import com.hoanganh.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +22,12 @@ public class UserController {
     UserService userService;
 
     @GetMapping()
-    public List<User> getAllUser() {
-        return userService.getAllUser();
+    public List<User> getAllUser(@RequestParam(name = "search", required = false) String keyword) {
+        return userService.getAllUser(keyword);
     }
 
     @PostMapping()
-    public String save(@RequestBody User user) {
+    public Response save(@RequestBody User user) {
         return userService.save(user);
     }
 
